@@ -113,11 +113,12 @@ body {
 .cursor-dot {
     width: 1rem;
     height: 1rem;
-    background-color: var(--pale-purple);
+    background-color: rgba(130, 112, 129, 0.5);
+    border: black;
 }
 
 .cursor-dot-outline {
     width: 5rem;
     height: 5rem;
-    background-color: rgba(var(--rose-quartz), 0.5);
+    background-color: rgba(174, 163, 176, 0.5); /* rose quartz */
 }

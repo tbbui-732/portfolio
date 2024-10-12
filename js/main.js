@@ -1,127 +1,103 @@
-var cursor = {
-    delay: 8,
-    _x: 0,
-    _y: 0,
-    endX: (window.innerWidth / 2),
-    endY: (window.innerHeight / 2),
-    cursorVisible: true,
-    cursorEnlarged: false,
-    $dot: document.querySelector('.cursor-dot'),
-    $outline: document.querySelector('.cursor-dot-outline'),
-    
-    init: function() {
+class Cursor {
+    constructor() {
+        this.delay = 8;
+        this._x = 0;
+        this._y = 0;
+        this.endX = window.innerWidth / 2;
+        this.endY = window.innerHeight / 2;
+        this.cursorVisible = true;
+        this.cursorEnlarged = false;
+        this.$dot = document.querySelector('.cursor-dot');
+        this.$outline = document.querySelector('.cursor-dot-outline');
+        
         // Set up element sizes
         this.dotSize = this.$dot.offsetWidth;
         this.outlineSize = this.$outline.offsetWidth;
         
         this.setupEventListeners();
         this.animateDotOutline();
-    },
-    
-//     updateCursor: function(e) {
-//         var self = this;
-        
-//         console.log(e)
-        
-//         // Show the cursor
-//         self.cursorVisible = true;
-//         self.toggleCursorVisibility();
+    }
 
-//         // Position the dot
-//         self.endX = e.pageX;
-//         self.endY = e.pageY;
-//         self.$dot.style.top = self.endY + 'px';
-//         self.$dot.style.left = self.endX + 'px';
-//     },
-    
-    setupEventListeners: function() {
-        var self = this;
-        
+    setupEventListeners() {
         // Anchor hovering
-        document.querySelectorAll('a').forEach(function(el) {
-            el.addEventListener('mouseover', function() {
-                self.cursorEnlarged = true;
-                self.toggleCursorSize();
+        document.querySelectorAll('a').forEach(el => {
+            el.addEventListener('mouseover', () => {
+                this.cursorEnlarged = true;
+                this.toggleCursorSize();
             });
-            el.addEventListener('mouseout', function() {
-                self.cursorEnlarged = false;
-                self.toggleCursorSize();
+            el.addEventListener('mouseout', () => {
+                this.cursorEnlarged = false;
+                this.toggleCursorSize();
             });
         });
         
         // Click events
-        document.addEventListener('mousedown', function() {
-            self.cursorEnlarged = true;
-            self.toggleCursorSize();
+        document.addEventListener('mousedown', () => {
+            this.cursorEnlarged = true;
+            this.toggleCursorSize();
         });
-        document.addEventListener('mouseup', function() {
-            self.cursorEnlarged = false;
-            self.toggleCursorSize();
+        document.addEventListener('mouseup', () => {
+            this.cursorEnlarged = false;
+            this.toggleCursorSize();
         });
-  
-  
-        document.addEventListener('mousemove', function(e) {
+
+        document.addEventListener('mousemove', (e) => {
             // Show the cursor
-            self.cursorVisible = true;
-            self.toggleCursorVisibility();
+            this.cursorVisible = true;
+            this.toggleCursorVisibility();
 
             // Position the dot
-            self.endX = e.pageX;
-            self.endY = e.pageY;
-            self.$dot.style.top = self.endY + 'px';
-            self.$dot.style.left = self.endX + 'px';
+            this.endX = e.pageX;
+            this.endY = e.pageY;
+            this.$dot.style.top = `${this.endY}px`;
+            this.$dot.style.left = `${this.endX}px`;
         });
-        
+
         // Hide/show cursor
-        document.addEventListener('mouseenter', function(e) {
-            self.cursorVisible = true;
-            self.toggleCursorVisibility();
-            self.$dot.style.opacity = 1;
-            self.$outline.style.opacity = 1;
+        document.addEventListener('mouseenter', () => {
+            this.cursorVisible = true;
+            this.toggleCursorVisibility();
+            this.$dot.style.opacity = 1;
+            this.$outline.style.opacity = 1;
         });
         
-        document.addEventListener('mouseleave', function(e) {
-            self.cursorVisible = true;
-            self.toggleCursorVisibility();
-            self.$dot.style.opacity = 0;
-            self.$outline.style.opacity = 0;
+        document.addEventListener('mouseleave', () => {
+            this.cursorVisible = false;
+            this.toggleCursorVisibility();
+            this.$dot.style.opacity = 0;
+            this.$outline.style.opacity = 0;
         });
-    },
-    
-    animateDotOutline: function() {
-        var self = this;
-        
-        self._x += (self.endX - self._x) / self.delay;
-        self._y += (self.endY - self._y) / self.delay;
-        self.$outline.style.top = self._y + 'px';
-        self.$outline.style.left = self._x + 'px';
-        
-        requestAnimationFrame(this.animateDotOutline.bind(self));
-    },
-    
-    toggleCursorSize: function() {
-        var self = this;
-        
-        if (self.cursorEnlarged) {
-            self.$dot.style.transform = 'translate(-50%, -50%) scale(0.75)';
-            self.$outline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+    }
+
+    animateDotOutline() {
+        this._x += (this.endX - this._x) / this.delay;
+        this._y += (this.endY - this._y) / this.delay;
+        this.$outline.style.top = `${this._y}px`;
+        this.$outline.style.left = `${this._x}px`;
+
+        requestAnimationFrame(this.animateDotOutline.bind(this));
+    }
+
+    toggleCursorSize() {
+        if (this.cursorEnlarged) {
+            this.$dot.style.transform = 'translate(-50%, -50%) scale(0.75)';
+            this.$outline.style.transform = 'translate(-50%, -50%) scale(1.5)';
         } else {
-            self.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
-            self.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
+            this.$dot.style.transform = 'translate(-50%, -50%) scale(1)';
+            this.$outline.style.transform = 'translate(-50%, -50%) scale(1)';
         }
-    },
-    
-    toggleCursorVisibility: function() {
-        var self = this;
-        
-        if (self.cursorVisible) {
-            self.$dot.style.opacity = 1;
-            self.$outline.style.opacity = 1;
+    }
+
+    toggleCursorVisibility() {
+        if (this.cursorVisible) {
+            this.$dot.style.opacity = 1;
+            this.$outline.style.opacity = 1;
         } else {
-            self.$dot.style.opacity = 0;
-            self.$outline.style.opacity = 0;
+            this.$dot.style.opacity = 0;
+            this.$outline.style.opacity = 0;
         }
     }
 }
 
-cursor.init();
+// Initialize the cursor
+const cursor = new Cursor();
