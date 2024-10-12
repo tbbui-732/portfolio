@@ -1,0 +1,35 @@
+
+/* Hovering cursor effect */
+html,
+body {
+    &,
+    * {
+        cursor: none;
+    }
+}
+
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out,
+                transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+    width: 1rem;
+    height: 1rem;
+    background-color: rgba(130, 112, 129, 0.5);
+    border: black;
+}
+
+.cursor-dot-outline {
+    width: 5rem;
+    height: 5rem;
+    background-color: rgba(174, 163, 176, 0.5); /* rose quartz */
+}

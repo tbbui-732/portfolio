@@ -14,57 +14,13 @@
     all: unset;
 }
 
-
 body {
     font-family: "Open Sans", serif;
-    background-color: var(--lavender-blue);
+    background: linear-gradient(to bottom right, var(--pale-purple), var(--lavender-blue));
     display: flex;
     justify-content: center;
     height: 100vh;
     margin: 0 auto;
-}
-
-/* Typewriter Effect */
-.typewriter {
-  width: 13ch;
-  animation: typing 1.5s steps(13), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-@keyframes typing {
-  from {
-    width: 0
-  }
-}
-    
-@keyframes blink {
-  50% {
-    border-color: transparent
-  }
-}  .typing-demo {
-  width: 22ch;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: monospace;
-  font-size: 2em;
-}
-
-@keyframes typing {
-  from {
-    width: 0
-  }
-}
-    
-@keyframes blink {
-  50% {
-    border-color: transparent
-  }
 }
 
 /* Basic Greeting/Information */
@@ -74,51 +30,18 @@ body {
     gap: 1rem;
     padding-top: 1.5rem;
     padding-right: 3rem;
+    min-width: 25rem;
 }
 
 .name {
-    font-size: 3rem;
+    font-size: 5rem;
 }
 
 .description {
-    max-width: 25rem;
+    font-size: 2rem;
+    max-width: 45rem;
 }
 
 #projects-link {
     text-decoration: underline;
-}
-
-/* Hovering cursor effect */
-html,
-body {
-    &,
-    * {
-        cursor: none;
-    }
-}
-
-.cursor-dot,
-.cursor-dot-outline {
-    pointer-events: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.3s ease-in-out,
-                transform 0.3s ease-in-out;
-}
-
-.cursor-dot {
-    width: 1rem;
-    height: 1rem;
-    background-color: rgba(130, 112, 129, 0.5);
-    border: black;
-}
-
-.cursor-dot-outline {
-    width: 5rem;
-    height: 5rem;
-    background-color: rgba(174, 163, 176, 0.5); /* rose quartz */
 }
