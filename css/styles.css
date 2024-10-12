@@ -35,6 +35,7 @@ body {
 
 .name {
     font-size: 5rem;
+    font-style: italic;
 }
 
 .description {

@@ -1,4 +1,3 @@
-
 /* Hovering cursor effect */
 html,
 body {
@@ -29,7 +28,7 @@ body {
 }
 
 .cursor-dot-outline {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     background-color: rgba(174, 163, 176, 0.5); /* rose quartz */
 }
