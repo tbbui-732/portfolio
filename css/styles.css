@@ -28,14 +28,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding-top: 1.5rem;
-    padding-right: 3rem;
     min-width: 25rem;
+    text-align: center;
 }
 
 .name {
     font-size: 5rem;
-    font-style: italic;
 }
 
 .description {
