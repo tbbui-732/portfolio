@@ -11,7 +11,10 @@
 .fill {
   margin: 0 auto;
   position: sticky;
-  top: 1rem;
+  top: 0;
+  z-index: 10;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .fill ul {
@@ -22,7 +25,6 @@
   justify-content: center;
   gap: 3rem;
   border-top: solid 3px black;
-  padding-top: 1rem;
 }
 
 .fill ul li {
@@ -35,10 +37,6 @@
   font-family: "Open Sans", serif;
   font-size: 1.5rem;
   text-transform: lowercase;
-  padding: 5px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 10px;
   transition: transform 0.2s ease-in-out;
 }
 
