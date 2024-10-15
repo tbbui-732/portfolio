@@ -19,8 +19,9 @@ body {
     background: linear-gradient(to bottom right, var(--pale-purple), var(--lavender-blue));
     display: flex;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0 auto;
+    background-attachment: fixed;
 }
 
 /* Basic Greeting/Information */
@@ -31,6 +32,7 @@ body {
     min-width: 25rem;
     text-align: center;
     align-items: center;
+    margin-top: 3rem;
 }
 
 .name {
@@ -44,4 +46,9 @@ body {
 
 #projects-link {
     text-decoration: underline;
+}
+
+/* Scroll Testing [TO BE DELETED] */
+.testing {
+    height: 200vh;
 }

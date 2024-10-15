@@ -10,6 +10,8 @@
 
 .fill {
   margin: 0 auto;
+  position: sticky;
+  top: 1rem;
 }
 
 .fill ul {
