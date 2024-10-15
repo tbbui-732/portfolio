@@ -28,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    gap: 2rem;
 }
 
 /* Basic Greeting/Information */
@@ -35,7 +36,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    min-width: 25rem;
     text-align: center;
     align-items: center;
     margin-top: 3rem;
@@ -47,7 +47,6 @@ body {
 
 .description {
     font-size: 2rem;
-    max-width: 45rem;
 }
 
 #projects-link {

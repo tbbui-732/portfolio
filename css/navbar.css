@@ -12,6 +12,9 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  background-color: var(--lavender-blue);
+  width: 100%;
+  border-bottom: solid 3px black;
 }
 
 .fill ul {
@@ -35,6 +38,7 @@
   font-size: 1.5rem;
   text-transform: lowercase;
   transition: transform 0.2s ease-in-out;
+  padding: 1rem;
 }
 
 .fill ul li a,
