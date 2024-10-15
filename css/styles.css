@@ -24,6 +24,12 @@ body {
     background-attachment: fixed;
 }
 
+.body-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 /* Basic Greeting/Information */
 .information-wrapper {
     display: flex;
@@ -51,4 +57,9 @@ body {
 /* About Me */
 .about-me-wrapper {
     height: 100%;
+}
+
+/* TESTING [TO BE DELETED] */
+.testing {
+    height: 200vh;
 }

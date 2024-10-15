@@ -9,12 +9,9 @@
 }
 
 .fill {
-  margin: 0 auto;
   position: sticky;
   top: 0;
   z-index: 10;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
 .fill ul {
@@ -22,9 +19,9 @@
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   gap: 3rem;
-  border-top: solid 3px black;
+  padding: 0;
 }
 
 .fill ul li {
@@ -65,7 +62,6 @@
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
   width: 0%;
   content: '.';
   color: transparent;
