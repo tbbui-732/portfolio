@@ -10,6 +10,13 @@ body{
   background: #222;
   font-family: Helvetica, sans-serif;
 }
+.inner-dot {
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+}
 .outer-ring {
     display: block;
     width: 3rem;
