@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    cursor: none;
 }
 body{
   color: #000;
@@ -9,10 +10,10 @@ body{
   background: #222;
   font-family: Helvetica, sans-serif;
 }
-.cursor {
+.outer-ring {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -20,19 +21,19 @@ body{
     border-radius: 50%;
     background: transparent;
     pointer-events: none;
-    z-index: 111;
+    z-index: 1000;
     border: 1px solid #fff;
     transition: all 0.2s ease-out;
-    animation: moveCursor1 .5s infinite alternate;
+    animation: pulsateCursor .8s infinite alternate;
 }
 
 .expand {
     background: transparent;
-    animation: moveCursor2 .5s forwards;
-    border: 1px solid yellow;
+    animation: expandCursor .5s forwards;
+    border: 1px solid green;
 }
 
-@keyframes moveCursor1 {
+@keyframes pulsateCursor {
     from {
         transform: scale(1);
     }
@@ -42,7 +43,7 @@ body{
     }
 }
 
-@keyframes moveCursor2 {
+@keyframes expandCursor {
     0% {
         transform: scale(1);
     }
@@ -56,4 +57,3 @@ body{
         opacity: 0;
     }
 }
-
