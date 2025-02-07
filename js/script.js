@@ -1,8 +1,10 @@
+const innerDot = document.querySelector('.inner-dot');
 const outerRing = document.querySelector('.outer-ring');
 
-// outer ring moves with mouse
+// cursor animation moves with mouse
 document.addEventListener('mousemove', e => {
-    outerRing.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px;")
+    innerDot.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
+    outerRing.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;")
 });
 
 // outer ring expands when clicked
