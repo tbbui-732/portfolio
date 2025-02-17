@@ -1,14 +1,13 @@
 const cursorInner = document.querySelector('.cursor-inner');
 const cursorOuter = document.querySelector('.cursor-outer');
 
-let posX = 0, posY = 0; // Cursor position
-let trailingX = 0, trailingY = 0; // Trailing cursor position
+let posX = 0, posY = 0; // Inner dot position
+let trailingX = 0, trailingY = 0; // Outer ring position
 
 document.addEventListener("mousemove", (e) => {
     posX = e.clientX;
     posY = e.clientY;
 
-    // Move the inner cursor instantly
     cursorInner.style.left = `${posX}px`;
     cursorInner.style.top = `${posY}px`;
 });
@@ -23,4 +22,4 @@ function animateOuterCursor() {
     requestAnimationFrame(animateOuterCursor);
 }
 
-animateOuterCursor(); // Start animation loop
+animateOuterCursor();
