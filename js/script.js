@@ -1,17 +1,26 @@
-const innerDot = document.querySelector('.inner-dot');
-const outerRing = document.querySelector('.outer-ring');
+const cursorInner = document.querySelector('.cursor-inner');
+const cursorOuter = document.querySelector('.cursor-outer');
 
-// cursor animation moves with mouse
-document.addEventListener('mousemove', e => {
-    innerDot.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;");
-    outerRing.setAttribute("style", "top: " + (e.pageY) + "px; left: " + (e.pageX) + "px;")
+let posX = 0, posY = 0; // Cursor position
+let trailingX = 0, trailingY = 0; // Trailing cursor position
+
+document.addEventListener("mousemove", (e) => {
+    posX = e.clientX;
+    posY = e.clientY;
+
+    // Move the inner cursor instantly
+    cursorInner.style.left = `${posX}px`;
+    cursorInner.style.top = `${posY}px`;
 });
 
-// outer ring expands when clicked
-document.addEventListener('click', () => {
-    outerRing.classList.add("expand");
-    setTimeout(() => {
-        outerRing.classList.remove("expand");
-    }, 500);
-});
+function animateOuterCursor() {
+    trailingX += (posX - trailingX) * 0.1;
+    trailingY += (posY - trailingY) * 0.1;
 
+    cursorOuter.style.left = `${trailingX}px`;
+    cursorOuter.style.top = `${trailingY}px`;
+
+    requestAnimationFrame(animateOuterCursor);
+}
+
+animateOuterCursor(); // Start animation loop

@@ -1,70 +1,27 @@
-* {
+body {
+    cursor: none; /* Hide the default cursor */
+    background-color: #111;
+    color: white;
     margin: 0;
-    padding: 0;
-    cursor: none;
+    overflow: hidden;
 }
-body{
-  color: #000;
-  min-height: 100vh;
-  overflow-x: hidden;
-  background: #222;
-  font-family: Helvetica, sans-serif;
-}
-.inner-dot {
-    display: block;
-    height: 0.5rem;
-    width: 0.5rem;
+
+.cursor-inner, .cursor-outer {
+    position: fixed;
     border-radius: 50%;
-    background-color: #fff;
-    z-index: 1100;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
-.outer-ring {
-    display: block;
-    width: 3rem;
-    height: 3rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    border-radius: 50%;
-    background: transparent;
-    pointer-events: none;
-    z-index: 1000;
-    border: 1px solid #fff;
-    transition: all 0.2s ease-out;
-    animation: pulsateCursor .8s infinite alternate;
+    pointer-events: none; /* Prevent interfering with elements */
+    transform: translate(-50%, -50%); /* Keeps both centered properly */
 }
 
-.expand {
-    background: transparent;
-    animation: expandCursor .5s forwards;
-    border: 1px solid green;
+.cursor-inner {
+    width: 8px;
+    height: 8px;
+    background-color: white;
 }
 
-@keyframes pulsateCursor {
-    from {
-        transform: scale(1);
-    }
-
-    to {
-        transform: scale(.8);
-    }
-}
-
-@keyframes expandCursor {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(2.5);
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
+.cursor-outer {
+    width: 30px;
+    height: 30px;
+    border: 2px solid white;
+    opacity: 0.5;
 }
